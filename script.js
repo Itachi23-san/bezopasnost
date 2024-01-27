@@ -9,7 +9,7 @@ class Arifm {
     }
 
     Summa() {
-        return `Сумма x и y по модулю ${this.modul}: ` + ((this.num1 % this.modul) + (this.num2 % this.modul));
+        return `Сумма x и y по модулю ${this.modul}: ` + (this.num1 + this.num2) % this.modul;
     }
     Mult() {
         return `Произведение x и y по модулю ${this.modul}: ` + (this.num1 * this.num2) % this.modul;
