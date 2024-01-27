@@ -1,0 +1,22 @@
+<!DOCTYPE html> 
+<head></head> 
+<body> 
+    <p>Генератор паролей</p>
+     <script> 
+    var abc = "AaBbCcDdEeFfGgHhIiJiKkLlMmNnJjPpQqRrSsTtUuVvWwXxYyZz";
+    var numbers = "0123456789";
+    var sings = "-_@()#$%^&*";
+    var symbols = abc + numbers + sings;
+    var letters = abc + numbers;
+    var password = "";
+    function getPassword (Fpart, Spart, Tpart) {
+    password += Fpart[Math.floor(Math.random() * Fpart.length)];
+    for (var i = 0; i <= 10; i++) {
+    password += Spart[Math.floor(Math.random() * Spart.length)];
+    }
+    password += Tpart[Math.floor(Math.random() * Tpart.length)];
+    return password;
+    }
+    document.writeln(getPassword(abc, symbols, letters));
+    </script> 
+</body>
