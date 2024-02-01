@@ -8,13 +8,11 @@ if (isset($_POST['user_name']) && isset($_POST['login']) && isset($_POST['email'
     $password = $_POST['password'];
     $confirm_password = $_POST['current_password'];
     $stmt = "SELECT * FROM user WHERE login = '$login'";
-    $res = mysqli_query($link, $stmt) or die(mysqli_error($link));
+    $res = mysqli_query($link, $stmt);
     if($res && mysqli_num_rows($res) > 0){
         echo 'Логин уже занят';
     } elseif (strlen($password) < 8 || !preg_match("/[A-Z]/", $password) || !preg_match("/[0-9]/", $password) || !preg_match("/[!@#$%^&*(),.?\":{}|<>]/", $password)) {
         echo "Пароль не соответствует требованиям.";
-    } elseif(!preg_match("/@[a-z]{2,}\.[a-z]{2,}/", $email)){
-        echo "Неправильный email";
     } elseif($password !== $confirm_password){
         echo "Пароли не совпадают";
     } else{
